@@ -66,13 +66,19 @@
     font-size: 12px;
 }
 
+.year-filter,
+.launch-filter,
+.landing-filter {
+    margin-top: 30px;
+}
+
 @media only screen and (min-width: 700px) {
     .flex-direction {
         flex-direction: row;
     }
     .filter-content {
         flex: 20;
-        max-height: 550px;
+        max-height: 650px;
     }
     .main-content {
         flex: 80;
