@@ -103,17 +103,17 @@ export class AppComponent implements OnInit, OnDestroy {
    */
   setFilterValuesOnSelection(value, reset) {
     if (!isNaN(value)) {
-      this.isSelectedYear = reset ? reset : value;
-      this.filterValues.year = reset ? reset : value
+      this.isSelectedYear = reset ? null : value;
+      this.filterValues.year = reset ? '' : value
     } else if (value === FILTERVALUE.LAUNCH_TRUE || value === FILTERVALUE.LAUNCH_FALSE) {
-      this.isSelectedLaunch = reset ? reset : value;
+      this.isSelectedLaunch = reset ? null : value;
       if (value === FILTERVALUE.LAUNCH_TRUE) {
         this.filterValues.launch_success = reset ? '' : FILTERVALUE.TRUE_STR;
       } else {
         this.filterValues.launch_success = reset ? '' : FILTERVALUE.FALSE_STR;
       }
     } else if (value === FILTERVALUE.LAND_TRUE || value === FILTERVALUE.LAND_FALSE) {
-      this.isSelectedLanding = reset ? reset : value;
+      this.isSelectedLanding = reset ? null : value;
       if (value === FILTERVALUE.LAND_TRUE) {
         this.filterValues.land_success = reset ? '' : FILTERVALUE.TRUE_STR;
       } else {
