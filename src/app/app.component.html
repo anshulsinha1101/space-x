@@ -2,7 +2,7 @@
   <div class="wrapper p--1">
     <h2>SpaceX Launch Programs</h2>
     <div class="flex-row flex-direction flex-shrink">
-      <div class="filter-content background-white mt--1 p--1">
+      <div class="filter-content background-white mt--1 p--1 box-shadow">
         <p class="font-20 font-weight-bold">Filters</p>
         <div class="year-filter p--0-4">
           <p class="filter-heading">Launch Year</p>
@@ -45,7 +45,7 @@
         <h1 *ngIf="isLoading">Loading.....</h1>
         <h1 *ngIf="!isLoading && spaceXData.length === 0">No Data</h1>
         <div class="items">
-          <div class="cards pt--8 background-white" *ngFor="let item of spaceXData">
+          <div class="cards box-shadow pt--8 background-white" *ngFor="let item of spaceXData">
             <div class="img-wrap">
               <img src="{{item.links.mission_patch_small}}" alt="Image not found">
             </div>
