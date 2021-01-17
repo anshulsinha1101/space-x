@@ -52,12 +52,18 @@
             <h3>{{item.mission_name}} #{{item.flight_number}}</h3>
             <div class="spacex-details">
               <p class="font-weight-bold">Mission Ids: </p>
-              <ul *ngIf="item.mission_id.length > 0">
+              <ul *ngIf="item.mission_id.length > 0 else notAvailable">
                 <li *ngFor="let mission of item.mission_id" class="color-blue">{{mission}}</li>
               </ul>
-              <p><span class="font-weight-bold">Launch Year: </span><span class="color-blue text-capitalize">{{item.launch_year}}</span></p>
-              <p><span class="font-weight-bold">Successfull Launch: </span><span class="color-blue text-capitalize">{{item.launch_success}}</span></p>
-              <p><span class="font-weight-bold">Successfull Landing: </span><span class="color-blue text-capitalize">{{item.rocket.first_stage.cores[0].land_success}}</span></p>
+              <ng-template #notAvailable>
+                <p class="color-blue text-capitalize">Not Available</p>
+              </ng-template>
+              <p><span class="font-weight-bold">Launch Year: </span><span
+                  class="color-blue text-capitalize">{{item.launch_year}}</span></p>
+              <p><span class="font-weight-bold">Successfull Launch: </span><span
+                  class="color-blue text-capitalize">{{item.launch_success}}</span></p>
+              <p><span class="font-weight-bold">Successfull Landing: </span><span
+                  class="color-blue text-capitalize">{{item.rocket.first_stage.cores[0].land_success ?item.rocket.first_stage.cores[0].land_success : 'Not Available' }}</span></p>
             </div>
           </div>
 
@@ -68,5 +74,18 @@
     <div class="flex-row flex-justify-content-space mt--1">
       <p><span class="font-weight-bold">Developed By</span> Anshul Sinha</p>
     </div>
+  </div>
+</div>
+<!-- Custom Loader/Spinner -->
+<div *ngIf="isLoading">
+  <div class="lds-roller">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
 </div>

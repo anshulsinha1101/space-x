@@ -43,6 +43,8 @@ body{
     padding: 4px 12px;
     border: #C5E09B;
     cursor: pointer;
+    width: 100px;
+    height: 30px;
 }
 
 .text-align-right{
@@ -52,6 +54,7 @@ body{
 .button.active{
     background-color: #7CBA01;
     border-color: #7CBA01;
+    font-weight: bold;
 }
 
 .pt--8{
