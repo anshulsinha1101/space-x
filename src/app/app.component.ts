@@ -102,43 +102,22 @@ export class AppComponent implements OnInit, OnDestroy {
    * @param reset boolean on second click if reset 
    */
   setFilterValuesOnSelection(value, reset) {
-    if (reset) {
-      if (!isNaN(value)) {
-        this.isSelectedYear = null;
-        this.filterValues.year = ''
-      } else if (value === FILTERVALUE.LAUNCH_TRUE || value === FILTERVALUE.LAUNCH_FALSE) {
-        this.isSelectedLaunch = null;
-        if (value === FILTERVALUE.LAUNCH_TRUE) {
-          this.filterValues.launch_success = '';
-        } else {
-          this.filterValues.launch_success = '';
-        }
-      } else if (value === FILTERVALUE.LAND_TRUE || value === FILTERVALUE.LAND_FALSE) {
-        this.isSelectedLanding = null;
-        if (value === FILTERVALUE.LAND_TRUE) {
-          this.filterValues.land_success = '';
-        } else {
-          this.filterValues.land_success = '';
-        }
+    if (!isNaN(value)) {
+      this.isSelectedYear = reset ? reset : value;
+      this.filterValues.year = reset ? reset : value
+    } else if (value === FILTERVALUE.LAUNCH_TRUE || value === FILTERVALUE.LAUNCH_FALSE) {
+      this.isSelectedLaunch = reset ? reset : value;
+      if (value === FILTERVALUE.LAUNCH_TRUE) {
+        this.filterValues.launch_success = reset ? '' : FILTERVALUE.TRUE_STR;
+      } else {
+        this.filterValues.launch_success = reset ? '' : FILTERVALUE.FALSE_STR;
       }
-    } else {
-      if (!isNaN(value)) {
-        this.isSelectedYear = value;
-        this.filterValues.year = value
-      } else if (value === FILTERVALUE.LAUNCH_TRUE || value === FILTERVALUE.LAUNCH_FALSE) {
-        this.isSelectedLaunch = value;
-        if (value === FILTERVALUE.LAUNCH_TRUE) {
-          this.filterValues.launch_success = FILTERVALUE.TRUE_STR;
-        } else {
-          this.filterValues.launch_success = FILTERVALUE.FALSE_STR;
-        }
-      } else if (value === FILTERVALUE.LAND_TRUE || value === FILTERVALUE.LAND_FALSE) {
-        this.isSelectedLanding = value;
-        if (value === FILTERVALUE.LAND_TRUE) {
-          this.filterValues.land_success = FILTERVALUE.TRUE_STR;
-        } else {
-          this.filterValues.land_success = FILTERVALUE.FALSE_STR;
-        }
+    } else if (value === FILTERVALUE.LAND_TRUE || value === FILTERVALUE.LAND_FALSE) {
+      this.isSelectedLanding = reset ? reset : value;
+      if (value === FILTERVALUE.LAND_TRUE) {
+        this.filterValues.land_success = reset ? '' : FILTERVALUE.TRUE_STR;
+      } else {
+        this.filterValues.land_success = reset ? '' : FILTERVALUE.FALSE_STR;
       }
     }
   }
